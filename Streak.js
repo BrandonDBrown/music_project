@@ -58,12 +58,12 @@ var audio = new Audio('streak.mp3');
       this.x = Math.random() * width;
       this.y = 0;
       this.len = 75;
-      this.speed = 7;
+      this.speed = 10;
       this.size = .4;
       // this is used so the shooting stars arent constant
-      this.waitTime = new Date().getTime() + (Math.random() * randomFloat(10000,15000)) + 500;
+      this.waitTime = new Date().getTime() + randomFloat(16000,18000);
       this.active = false;
-
+			
   }
   ShootingStar.prototype.update = function () {
       if (this.active) {
@@ -79,7 +79,6 @@ var audio = new Audio('streak.mp3');
               bgCtx.lineTo(this.x + this.len, this.y - this.len);
               bgCtx.stroke();
 							audio.play();
-
           }
       } else {
           if (this.waitTime < new Date().getTime()) {
@@ -100,13 +99,12 @@ var audio = new Audio('streak.mp3');
 
   // Add 2 shooting stars that just cycle.
 		entities.push(new ShootingStar());
-//  	entities.push(new ShootingStar());
 
   //animate background
   function animate() {
       bgCtx.clearRect(0, 0, width, height);
-      bgCtx.fillStyle = '#ffffff';
-			bgCtx.strokeStyle = '#ffffff';
+      bgCtx.fillStyle = '#fdfde1';
+			bgCtx.strokeStyle = '#fdfde1';
       var entLen = entities.length;
 
       while (entLen--) {
