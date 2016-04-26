@@ -2,6 +2,9 @@
 	var canvas;
 	var context2D;
 	var particles = [];
+	var audioz;
+	var audio_files = ["E.mp3", "G.mp3", "A.mp3", "C.mp3"]
+
 	
 //A single explosion particle
 	function Particle() {
@@ -12,7 +15,7 @@
 		this.color = "#000";
 		this.velocityX = 0;
 		this.velocityY = 0;
-		this.scaleSpeed = 0.25;
+		this.scaleSpeed = 0.05;
 		
 		this.update = function(ms)
 		{
@@ -76,8 +79,7 @@
 		var maxScaleSpeed = 4.0;
 		
 		
-		for (var angle=0; angle<360; angle += Math.round(360/count))
-		{
+		for (var angle=0; angle<360; angle += Math.round(360/count)) {
 			var particle = new Particle();
 			
 			particle.x = x;
@@ -95,6 +97,9 @@
 			particle.velocityY = speed * Math.sin(angle * Math.PI / 180.0);
 			
 			particles.push(particle);
+			
+			var random_file = audio_files[Math.floor(randomFloat(0,4))];
+			audioz = new Audio(random_file);
 		}
 	}
 	
@@ -109,20 +114,16 @@
 			particle.draw(context2D);
 		}
 	}
+	
 
 	// BOOM !
 		setInterval(function() {
-			var x = randomFloat(0, 1200);
-			var y = randomFloat(0, 1000);
-			
-			createExplosion(x, y, "#294a86");
-			createExplosion(x, y, "#294a86");
-			
-			var audio_files = ["E.mp3", "G.mp3", "A.mp3", "C.mp3"]
-			var random_file = audio_files[Math.floor(randomFloat(0,4))];
-			var audio = new Audio(random_file);
-			audio.play();
-		},randomFloat(5000,12000));
+			var x = randomFloat(0, width);
+			var y = randomFloat(0, height);
+			createExplosion(x, y, "#becae4");
+			createExplosion(x, y, "#becae4");
+			audioz.play();
+		},randomFloat(6000,12000));
 
 
 
