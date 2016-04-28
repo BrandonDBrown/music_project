@@ -1,11 +1,14 @@
-	var MAX_PARTICLES = randomFloat(50, 300),
-			DRAW_INTERVAL = 60,
-			context = canvas.getContext('2d'),
-			gradient = null,
-			pixies = new Array();
+var MAX_PARTICLES = 200,
+	  DRAW_INTERVAL = 60,
+		context = canvas.getContext('2d'),
+		gradient = null,
+		pixies = new Array();
+
 
 //Circles
+
 		function Circle() {
+			
 //			time_to_live – used to calculate hl–or the half-life–of each particle
 //			x_maxspeed and y_maxspeed – defines the maximum number of pixels a particle can move each frame
 //			radius_max – maximum radius a particle can achieve
@@ -66,16 +69,15 @@
 				if(this.x > WIDTH || this.x < 0) this.dx *= -1;
 				if(this.y > HEIGHT || this.y < 0) this.dy *= -1;
 			}
-
 			this.getX = function() { return this.x; }
 			this.getY = function() { return this.y; }
-		}
-
+		};
 		for (var i = 0; i < MAX_PARTICLES; i++) {
 			pixies.push(new Circle());
 			pixies[i].reset();
 		}
 
+setTimeout(function() {
 		function draw() {
 			context.clearRect(0, 0, WIDTH, HEIGHT);
 			for(var i = 0; i < pixies.length; i++) {
@@ -83,9 +85,9 @@
 				pixies[i].move();
 				pixies[i].draw();
 			}
-		}
-		setInterval(draw, DRAW_INTERVAL);
-
+		};
+			setInterval(draw, DRAW_INTERVAL)
+},32500);
 
 
 //mouse commands
