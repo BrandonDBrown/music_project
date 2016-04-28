@@ -123,7 +123,7 @@
 			createExplosion(x, y, "#becae4");
 			createExplosion(x, y, "#becae4");
 			audioz.play();
-		},randomFloat(6000,12000));
+		},randomFloat(9000,12000));
 
 
 

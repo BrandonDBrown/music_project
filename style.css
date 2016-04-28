@@ -7,7 +7,7 @@ body, html {
     padding: 0;
     overflow: hidden;
 }
-#pixie,#canvas, #bgcanvas, #blink, #mycanvas {
+#pixie, #canvas, #bgcanvas, #mycanvas, #drums {
 	  position: absolute;
     top: 0;
     left: 0;

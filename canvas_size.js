@@ -2,8 +2,8 @@
 	var WIDTH = window.innerWidth,
 			HEIGHT = window.innerHeight,
 			container = document.querySelector('#container'),
-			canvas = document.querySelector('#pixie');
-			canvazz = ["#canvas", "#pixie", "#myCanvas" ]
+			canvas = document.querySelector('#pixie'),
+			canvazz = ["#canvas", "#pixie", "#myCanvas", "#drums" ]
 
 
 	function setDimensions(e) {
